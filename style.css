@@ -1,199 +1,155 @@
-/* QUIET LUXURY THEME - V2 (EXPANDED) */
+/* cv layout */
 :root {
-    --bg-color: #F9F8F6;       /* Oatmeal */
-    --card-bg: #FFFFFF;        /* White */
-    --text-color: #2C2C2C;     /* Deep Charcoal */
-    --text-light: #666666;     /* Muted Grey */
-    --accent-color: #8C8C8C;   /* Stone */
-    --border-color: #E5E5E5;   /* Light Border */
-    --highlight: #D4AF37;      /* Subtle Champagne (for tiny accents) */
+    --sidebar-bg: #F0EFEA;      /* Darker Oatmeal/Taupe for contrast */
+    --main-bg: #FFFFFF;         /* Clean White for readability */
+    --text-main: #333333;       /* Charcoal */
+    --text-muted: #666666;      /* Grey */
+    --accent: #D4AF37;          /* Subtle Gold Border */
     
     --font-serif: 'Playfair Display', serif;
     --font-sans: 'Inter', Helvetica, sans-serif;
 }
 
-/* BASE RESET */
 * { box-sizing: border-box; }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: var(--font-sans);
-    line-height: 1.7;
     margin: 0;
     padding: 0;
-    -webkit-font-smoothing: antialiased;
+    font-family: var(--font-sans);
+    color: var(--text-main);
+    background-color: var(--main-bg);
 }
 
-h1, h2, h3, h4 {
-    font-family: var(--font-serif);
-    font-weight: 400;
-    margin: 0 0 1rem 0;
-    letter-spacing: -0.02em;
-    color: #1a1a1a;
-}
-
-p { margin-bottom: 1.5rem; }
-
-a {
-    color: var(--text-color);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-}
-a:hover { border-bottom-color: var(--text-color); }
-
-/* LAYOUT CONTAINER */
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 6rem 2rem;
-}
-
-section { margin-bottom: 8rem; }
-
-/* 1. HERO SECTION */
-.hero { padding-top: 4rem; }
-.hero-tag {
-    display: inline-block;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid var(--highlight);
-    padding-bottom: 5px;
-}
-.hero h1 {
-    font-size: 3.8rem;
-    line-height: 1.1;
-    margin-bottom: 2rem;
-}
-.hero-lead {
-    font-size: 1.25rem;
-    color: var(--text-light);
-    max-width: 600px;
-    font-weight: 300;
-}
-
-/* 2. EXPERTISE GRID (From Expertise.tsx) */
-.expertise-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 3rem;
-    border-top: 1px solid var(--border-color);
-    padding-top: 3rem;
-}
-.expertise-item h4 { font-size: 1.1rem; margin-bottom: 0.5rem; }
-.expertise-item p { font-size: 0.9rem; color: var(--text-light); }
-
-/* 3. EXPERIENCE (From App.tsx) */
-.job-entry {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    margin-bottom: 4rem;
-    gap: 2rem;
-}
-.job-meta { text-align: right; }
-.job-company { font-weight: 600; display: block; }
-.job-date { 
-    font-size: 0.85rem; 
-    color: var(--text-light); 
-    display: block; 
-    margin-top: 0.25rem;
-}
-.job-details h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-.job-details ul { 
-    list-style: none; 
-    padding: 0; 
-}
-.job-details li {
-    margin-bottom: 0.75rem;
-    padding-left: 1.5rem;
-    position: relative;
-    color: var(--text-light);
-}
-.job-details li::before {
-    content: "—";
-    position: absolute;
-    left: 0;
-    color: var(--highlight);
-}
-
-/* 4. CASE STUDIES (From CaseStudies.tsx) */
-.case-study-card {
-    background: var(--card-bg);
-    padding: 3rem;
-    border: 1px solid var(--border-color);
-    transition: transform 0.4s ease;
-}
-.case-study-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.03);
-}
-.stat-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border-color);
-}
-.stat-item strong {
-    display: block;
-    font-size: 2rem;
-    font-family: var(--font-serif);
-    color: var(--text-color);
-    line-height: 1;
-    margin-bottom: 0.5rem;
-}
-.stat-item span { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-light); }
-
-/* 5. THOUGHT LEADERSHIP (From Articles.tsx) */
-.article-list { border-top: 1px solid var(--text-color); }
-.article-row {
+/* THE SPLIT LAYOUT CONTAINER */
+.resume-container {
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid var(--border-color);
-    transition: background 0.2s;
+    min-height: 100vh;
+    flex-direction: column; /* Mobile first: stack them */
 }
-.article-row:hover { background: rgba(255,255,255,0.5); }
-.article-title { font-family: var(--font-serif); font-size: 1.2rem; }
-.article-meta { font-size: 0.85rem; color: var(--text-light); }
 
-/* 6. CONTACT FORM */
-input, textarea {
-    width: 100%;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid #CCCCCC;
-    padding: 1rem 0;
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-    outline: none;
-    transition: border-color 0.3s;
+/* LEFT COLUMN (SIDEBAR) */
+.sidebar {
+    background-color: var(--sidebar-bg);
+    padding: 4rem 2rem;
+    border-right: 1px solid #E5E5E5;
 }
-input:focus, textarea:focus { border-bottom: 1px solid var(--text-color); }
-button {
-    background: var(--text-color);
-    color: #fff;
-    border: none;
-    padding: 1rem 3rem;
-    font-family: var(--font-sans);
+
+.profile-name {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.profile-role {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    display: block;
+    border-bottom: 1px solid var(--text-main);
+    padding-bottom: 1rem;
+    width: 50px; /* Short line effect */
+}
+
+.contact-info {
+    margin-bottom: 3rem;
+    font-size: 0.9rem;
+}
+.contact-info p { margin: 0.5rem 0; }
+.contact-info a { color: var(--text-main); text-decoration: none; border-bottom: 1px solid transparent; }
+.contact-info a:hover { border-bottom-color: var(--text-main); }
+
+.skills-list h4 {
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    font-size: 0.8rem;
-    cursor: pointer;
-    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
-button:hover { opacity: 0.9; }
+.skills-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.skills-list li {
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .job-entry { grid-template-columns: 1fr; gap: 0.5rem; }
-    .job-meta { text-align: left; margin-bottom: 1rem; }
-    .hero h1 { font-size: 2.5rem; }
+/* RIGHT COLUMN (CONTENT) */
+.main-content {
+    background-color: var(--main-bg);
+    padding: 4rem 2rem;
+    max-width: 800px;
+}
+
+section { margin-bottom: 6rem; }
+
+h2 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--text-main);
+}
+
+/* JOB ENTRIES */
+.job-entry {
+    margin-bottom: 3rem;
+    display: grid;
+    grid-template-columns: 120px 1fr; /* Date on left, content on right */
+    gap: 2rem;
+}
+
+.job-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    padding-top: 5px;
+}
+
+.job-details h3 {
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem 0;
+    font-family: var(--font-serif);
+}
+
+.job-company {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.job-details ul {
+    padding-left: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* CASE STUDY CARD (Simple Box) */
+.case-study-box {
+    background: #FAFAFA;
+    padding: 2rem;
+    border-left: 3px solid var(--text-main);
+}
+
+/* DESKTOP VIEW (Side by Side) */
+@media (min-width: 900px) {
+    .resume-container {
+        flex-direction: row;
+    }
+    .sidebar {
+        width: 35%; /* Fixed width */
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow-y: auto;
+    }
+    .main-content {
+        width: 65%;
+        padding: 5rem 4rem;
+    }
 }
