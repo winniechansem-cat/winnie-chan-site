@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Winnie Chan | Global Performance Marketing Lead</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+    /* --- RESET & BASICS --- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+        --sidebar-bg: #F3F2ED;      /* Quiet Luxury Oatmeal */
+        --main-bg: #FFFFFF;         /* Pure White */
+        --text-dark: #1C1C1C;       /* Soft Black */
+        --text-grey: #5A5A5A;       /* Dark Grey */
+        --line-color: #D1D1D1;      /* Light borders */
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        color: var(--text-dark);
+        background: var(--main-bg);
+        line-height: 1.6;
+    }
+
+    h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; }
+    a { text-decoration: none; color: inherit; transition: opacity 0.2s; }
+    a:hover { opacity: 0.6; }
+
+    /* --- LAYOUT ARCHITECTURE --- */
+    .cv-container {
+        display: flex;
+        flex-direction: column; /* Mobile first */
+        min-height: 100vh;
+    }
+
+    /* --- SIDEBAR (LEFT) --- */
+    .sidebar {
+        background-color: var(--sidebar-bg);
+        padding: 4rem 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--line-color);
+    }
+
+    .profile-img {
+        width: 160px;
+        height: 160px;
+        background-color: #E0DFDB; /* Placeholder for your photo */
+        border-radius: 50%;
+        margin: 0 auto 2rem auto;
+        object-fit: cover;
+    }
+
+    .name-title {
+        font-size: 2.5rem;
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+    }
+
+    .job-title {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--text-grey);
+        display: inline-block;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid var(--text-dark);
+        padding-bottom: 5px;
+    }
+
+    .contact-block { margin-top: 2rem; font-size: 0.9rem; }
+    .contact-block p { margin-bottom: 0.5rem; color: var(--text-grey); }
+    .contact-block a { border-bottom: 1px solid transparent; }
+    .contact-block a:hover { border-bottom: 1px solid var(--text-dark); }
+
+    .skills-section { margin-top: 3rem; text-align: left; padding: 0 1rem; }
+    .skills-header { 
+        font-size: 0.75rem; 
+        text-transform: uppercase; 
+        letter-spacing: 0.15em; 
+        font-weight: 700; 
+        margin-bottom: 1rem; 
+        text-align: center;
+    }
+    .skills-list { list-style: none; font-size: 0.85rem; color: var(--text-grey); margin-bottom: 1.5rem; text-align: center; }
+    .skills-list li { margin-bottom: 0.4rem; }
+
+    /* --- MAIN CONTENT (RIGHT) --- */
+    .main-content {
+        padding: 4rem 2rem;
+        background-color: var(--main-bg);
+    }
+
+    .section { margin-bottom: 5rem; }
+    
+    .section-header {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+    }
+    
+    .section-header::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--line-color);
+        margin-left: 1.5rem;
+    }
+
+    .bio {
+        font-size: 1.05rem;
+        max-width: 650px;
+        color: var(--text-grey);
+        font-weight: 300;
+        line-height: 1.8;
+    }
+
+    /* EXPERIENCE ENTRIES */
+    .job-item {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        margin-bottom: 3.5rem;
+    }
+
+    .date-range {
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.5rem;
+        color: var(--text-dark);
+    }
+
+    .role-title { font-size: 1.3rem; margin-bottom: 0.2rem; }
+    .company-name { font-size: 0.95rem; font-style: italic; color: var(--text-grey); margin-bottom: 1rem; }
+    
+    .job-desc ul { 
+        padding-left: 1.2rem; 
+        color: var(--text-grey); 
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+    .job-desc li { margin-bottom: 0.5rem; }
+
+    /* BUTTON */
+    .btn-primary {
+        display: inline-block;
+        background: var(--text-dark);
+        color: #fff;
+        padding: 1rem 2.5rem;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-top: 1rem;
+        border: none;
+        cursor: pointer;
+    }
+    .btn-primary:hover { opacity: 0.8; }
+
+    /* --- DESKTOP STYLES (THE SPLIT) --- */
+    @media (min-width: 900px) {
+        .cv-container {
+            flex-direction: row; /* Side by side layout */
+        }
+
+        .sidebar {
+            width: 35%;          /* Fixed width */
+            height: 100vh;       /* Full height */
+            position: sticky;    /* STICKY BEHAVIOR */
+            top: 0;
+            border-right: 1px solid var(--line-color);
+            border-bottom: none;
+            overflow-y: auto;    /* Scroll if content is too long */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding-top: 5rem;
+        }
+
+        .main-content {
+            width: 65%;
+            padding: 6rem 5rem;
+        }
+
+        .job-item {
+            grid-template-columns: 140px 1fr; /* Date on left, content on right */
+            gap: 2rem;
+        }
+
+        .date-range { text-align: right; padding-top: 6px; }
+    }
+</style>
+</head>
+<body>
+
+<div class="cv-container">
+
+    <aside class="sidebar">
+        <div class="profile-img"></div>
+        
+        <h1 class="name-title">Winnie<br>Chan</h1>
+        <span class="job-title">Performance Marketing Lead</span>
+
+        <div class="contact-block">
+            <p>Melbourne, 3068</p>
+            <p><a href="mailto:winniechan.sem@gmail.com">winniechan.sem@gmail.com</a></p>
+        </div>
+
+        <div class="skills-section">
+            <div class="skills-header">Platforms</div>
+            <ul class="skills-list">
+                <li>Google Ads (Certified)</li>
+                <li>LinkedIn Campaign Manager</li>
+                <li>Meta Business Suite</li>
+                <li>StackAdapt & Reddit Ads</li>
+                <li>6Sense</li>
+            </ul>
+
+            <div class="skills-header">Tech & Analytics</div>
+            <ul class="skills-list">
+                <li>Salesforce & HubSpot</li>
+                <li>GA4 & Tableau</li>
+                <li>Asana & Jira</li>
+                <li>Excel (Advanced)</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 2rem;">
+            <a href="mailto:winniechan.sem@gmail.com" class="btn-primary">Contact Me</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        
+        <section class="section">
+            <h2 class="section-header">Profile</h2>
+            <p class="bio">
+                Senior Performance Marketer with over 10 years of experience driving revenue for high-growth tech and enterprise brands. I bring a commercial mindset to performance marketing, managing significant media budgets with a strict focus on ROI and efficiency. I combine high-level strategy with hands-on execution, ensuring paid media, automation, and creative work together to deliver tangible business outcomes.
+            </p>
+        </section>
