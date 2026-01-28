@@ -1,13 +1,13 @@
-/* cv layout */
+/* WIX TEMPLATE REPLICA - QUIET LUXURY EDITION */
 :root {
-    --sidebar-bg: #F0EFEA;      /* Darker Oatmeal/Taupe for contrast */
-    --main-bg: #FFFFFF;         /* Clean White for readability */
-    --text-main: #333333;       /* Charcoal */
-    --text-muted: #666666;      /* Grey */
-    --accent: #D4AF37;          /* Subtle Gold Border */
+    --sidebar-bg: #F2F0EB;      /* The "Oatmeal" Sidebar */
+    --main-bg: #FFFFFF;         /* Crisp White Content */
+    --text-dark: #1A1A1A;       /* Almost Black */
+    --text-light: #555555;      /* Dark Grey */
+    --accent: #D4AF37;          /* Subtle Gold Line */
     
-    --font-serif: 'Playfair Display', serif;
-    --font-sans: 'Inter', Helvetica, sans-serif;
+    --font-head: 'Playfair Display', serif;
+    --font-body: 'Inter', Helvetica, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -15,141 +15,150 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: var(--font-sans);
-    color: var(--text-main);
+    font-family: var(--font-body);
     background-color: var(--main-bg);
+    color: var(--text-dark);
 }
 
-/* THE SPLIT LAYOUT CONTAINER */
-.resume-container {
+/* THE SPLIT LAYOUT */
+.wrapper {
     display: flex;
+    flex-direction: column; /* Mobile first: Stack them */
     min-height: 100vh;
-    flex-direction: column; /* Mobile first: stack them */
 }
 
-/* LEFT COLUMN (SIDEBAR) */
+/* --- LEFT SIDEBAR (The "Brand" Column) --- */
 .sidebar {
     background-color: var(--sidebar-bg);
     padding: 4rem 2rem;
+    text-align: center; /* Center align like the template */
     border-right: 1px solid #E5E5E5;
 }
 
-.profile-name {
-    font-family: var(--font-serif);
-    font-size: 3rem;
-    line-height: 1;
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
-}
-
-.profile-role {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--text-muted);
-    margin-bottom: 3rem;
+.profile-photo {
+    width: 180px;
+    height: 180px;
+    background-color: #D3D1CD; /* Placeholder grey */
+    border-radius: 50%; /* Circle shape */
+    margin: 0 auto 2rem auto;
+    object-fit: cover;
     display: block;
-    border-bottom: 1px solid var(--text-main);
-    padding-bottom: 1rem;
-    width: 50px; /* Short line effect */
 }
 
-.contact-info {
-    margin-bottom: 3rem;
-    font-size: 0.9rem;
+.name {
+    font-family: var(--font-head);
+    font-size: 2.5rem;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
 }
-.contact-info p { margin: 0.5rem 0; }
-.contact-info a { color: var(--text-main); text-decoration: none; border-bottom: 1px solid transparent; }
-.contact-info a:hover { border-bottom-color: var(--text-main); }
 
-.skills-list h4 {
+.role {
     font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 1rem;
-}
-.skills-list ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.skills-list li {
-    margin-bottom: 0.5rem;
-    color: var(--text-muted);
-    font-size: 0.95rem;
+    letter-spacing: 0.15em;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    display: inline-block;
+    border-bottom: 1px solid var(--text-dark);
+    padding-bottom: 5px;
 }
 
-/* RIGHT COLUMN (CONTENT) */
+.sidebar-section {
+    margin-top: 3rem;
+    text-align: center; /* Keep left rail centered */
+}
+
+.sidebar-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+.contact-list a, .skills-list li {
+    display: block;
+    color: var(--text-light);
+    text-decoration: none;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.contact-list a:hover { color: #000; }
+
+/* --- RIGHT CONTENT (The "Resume" Column) --- */
 .main-content {
-    background-color: var(--main-bg);
     padding: 4rem 2rem;
     max-width: 800px;
 }
 
-section { margin-bottom: 6rem; }
-
-h2 {
-    font-family: var(--font-serif);
+.section-title {
+    font-family: var(--font-head);
     font-size: 2rem;
     margin-bottom: 2rem;
-    color: var(--text-main);
+    margin-top: 4rem;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+}
+
+/* The little line next to headers */
+.section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #E5E5E5;
+    margin-left: 1.5rem;
+}
+
+.bio-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    max-width: 600px;
 }
 
 /* JOB ENTRIES */
-.job-entry {
-    margin-bottom: 3rem;
+.job-item {
     display: grid;
-    grid-template-columns: 120px 1fr; /* Date on left, content on right */
+    grid-template-columns: 120px 1fr; /* Date | Content */
     gap: 2rem;
+    margin-bottom: 3rem;
 }
 
 .job-date {
     font-size: 0.85rem;
-    color: var(--text-muted);
-    font-weight: 500;
-    padding-top: 5px;
+    font-weight: 600;
+    color: var(--text-dark);
+    padding-top: 6px; /* Align with title */
 }
 
-.job-details h3 {
-    font-size: 1.25rem;
-    margin: 0 0 0.5rem 0;
-    font-family: var(--font-serif);
+.job-info h3 {
+    font-family: var(--font-head);
+    font-size: 1.4rem;
+    margin: 0 0 0.25rem 0;
 }
 
 .job-company {
     font-size: 0.9rem;
-    font-weight: 600;
+    font-style: italic;
+    color: var(--text-light);
     margin-bottom: 1rem;
     display: block;
 }
 
-.job-details ul {
+.job-info ul {
     padding-left: 1rem;
-    color: var(--text-muted);
+    color: var(--text-light);
     line-height: 1.6;
+    margin-top: 1rem;
 }
 
-/* CASE STUDY CARD (Simple Box) */
-.case-study-box {
-    background: #FAFAFA;
-    padding: 2rem;
-    border-left: 3px solid var(--text-main);
-}
-
-/* DESKTOP VIEW (Side by Side) */
-@media (min-width: 900px) {
-    .resume-container {
-        flex-direction: row;
-    }
-    .sidebar {
-        width: 35%; /* Fixed width */
-        position: sticky;
-        top: 0;
-        height: 100vh;
-        overflow-y: auto;
-    }
-    .main-content {
-        width: 65%;
-        padding: 5rem 4rem;
-    }
-}
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    background-color: var(--text-dark);
+    color:
