@@ -1,0 +1,206 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 /* QUIET LUXURY THEME - V2 (EXPANDED) */\
+:root \{\
+    --bg-color: #F9F8F6;       /* Oatmeal */\
+    --card-bg: #FFFFFF;        /* White */\
+    --text-color: #2C2C2C;     /* Deep Charcoal */\
+    --text-light: #666666;     /* Muted Grey */\
+    --accent-color: #8C8C8C;   /* Stone */\
+    --border-color: #E5E5E5;   /* Light Border */\
+    --highlight: #D4AF37;      /* Subtle Champagne (for tiny accents) */\
+    \
+    --font-serif: 'Playfair Display', serif;\
+    --font-sans: 'Inter', Helvetica, sans-serif;\
+\}\
+\
+/* BASE RESET */\
+* \{ box-sizing: border-box; \}\
+\
+body \{\
+    background-color: var(--bg-color);\
+    color: var(--text-color);\
+    font-family: var(--font-sans);\
+    line-height: 1.7;\
+    margin: 0;\
+    padding: 0;\
+    -webkit-font-smoothing: antialiased;\
+\}\
+\
+h1, h2, h3, h4 \{\
+    font-family: var(--font-serif);\
+    font-weight: 400;\
+    margin: 0 0 1rem 0;\
+    letter-spacing: -0.02em;\
+    color: #1a1a1a;\
+\}\
+\
+p \{ margin-bottom: 1.5rem; \}\
+\
+a \{\
+    color: var(--text-color);\
+    text-decoration: none;\
+    border-bottom: 1px solid rgba(0,0,0,0.1);\
+    transition: all 0.3s ease;\
+\}\
+a:hover \{ border-bottom-color: var(--text-color); \}\
+\
+/* LAYOUT CONTAINER */\
+.container \{\
+    max-width: 900px;\
+    margin: 0 auto;\
+    padding: 6rem 2rem;\
+\}\
+\
+section \{ margin-bottom: 8rem; \}\
+\
+/* 1. HERO SECTION */\
+.hero \{ padding-top: 4rem; \}\
+.hero-tag \{\
+    display: inline-block;\
+    font-size: 0.75rem;\
+    letter-spacing: 0.15em;\
+    text-transform: uppercase;\
+    color: var(--text-light);\
+    margin-bottom: 1.5rem;\
+    border-bottom: 1px solid var(--highlight);\
+    padding-bottom: 5px;\
+\}\
+.hero h1 \{\
+    font-size: 3.8rem;\
+    line-height: 1.1;\
+    margin-bottom: 2rem;\
+\}\
+.hero-lead \{\
+    font-size: 1.25rem;\
+    color: var(--text-light);\
+    max-width: 600px;\
+    font-weight: 300;\
+\}\
+\
+/* 2. EXPERTISE GRID (From Expertise.tsx) */\
+.expertise-grid \{\
+    display: grid;\
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\
+    gap: 3rem;\
+    border-top: 1px solid var(--border-color);\
+    padding-top: 3rem;\
+\}\
+.expertise-item h4 \{ font-size: 1.1rem; margin-bottom: 0.5rem; \}\
+.expertise-item p \{ font-size: 0.9rem; color: var(--text-light); \}\
+\
+/* 3. EXPERIENCE (From App.tsx) */\
+.job-entry \{\
+    display: grid;\
+    grid-template-columns: 1fr 3fr;\
+    margin-bottom: 4rem;\
+    gap: 2rem;\
+\}\
+.job-meta \{ text-align: right; \}\
+.job-company \{ font-weight: 600; display: block; \}\
+.job-date \{ \
+    font-size: 0.85rem; \
+    color: var(--text-light); \
+    display: block; \
+    margin-top: 0.25rem;\
+\}\
+.job-details h3 \{ font-size: 1.5rem; margin-bottom: 1rem; \}\
+.job-details ul \{ \
+    list-style: none; \
+    padding: 0; \
+\}\
+.job-details li \{\
+    margin-bottom: 0.75rem;\
+    padding-left: 1.5rem;\
+    position: relative;\
+    color: var(--text-light);\
+\}\
+.job-details li::before \{\
+    content: "\'97";\
+    position: absolute;\
+    left: 0;\
+    color: var(--highlight);\
+\}\
+\
+/* 4. CASE STUDIES (From CaseStudies.tsx) */\
+.case-study-card \{\
+    background: var(--card-bg);\
+    padding: 3rem;\
+    border: 1px solid var(--border-color);\
+    transition: transform 0.4s ease;\
+\}\
+.case-study-card:hover \{\
+    transform: translateY(-5px);\
+    box-shadow: 0 20px 40px rgba(0,0,0,0.03);\
+\}\
+.stat-grid \{\
+    display: grid;\
+    grid-template-columns: 1fr 1fr;\
+    gap: 2rem;\
+    margin-top: 2rem;\
+    padding-top: 2rem;\
+    border-top: 1px solid var(--border-color);\
+\}\
+.stat-item strong \{\
+    display: block;\
+    font-size: 2rem;\
+    font-family: var(--font-serif);\
+    color: var(--text-color);\
+    line-height: 1;\
+    margin-bottom: 0.5rem;\
+\}\
+.stat-item span \{ font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-light); \}\
+\
+/* 5. THOUGHT LEADERSHIP (From Articles.tsx) */\
+.article-list \{ border-top: 1px solid var(--text-color); \}\
+.article-row \{\
+    display: flex;\
+    justify-content: space-between;\
+    align-items: baseline;\
+    padding: 1.5rem 0;\
+    border-bottom: 1px solid var(--border-color);\
+    transition: background 0.2s;\
+\}\
+.article-row:hover \{ background: rgba(255,255,255,0.5); \}\
+.article-title \{ font-family: var(--font-serif); font-size: 1.2rem; \}\
+.article-meta \{ font-size: 0.85rem; color: var(--text-light); \}\
+\
+/* 6. CONTACT FORM */\
+input, textarea \{\
+    width: 100%;\
+    background: transparent;\
+    border: none;\
+    border-bottom: 1px solid #CCCCCC;\
+    padding: 1rem 0;\
+    font-family: var(--font-sans);\
+    font-size: 1rem;\
+    margin-bottom: 1.5rem;\
+    outline: none;\
+    transition: border-color 0.3s;\
+\}\
+input:focus, textarea:focus \{ border-bottom: 1px solid var(--text-color); \}\
+button \{\
+    background: var(--text-color);\
+    color: #fff;\
+    border: none;\
+    padding: 1rem 3rem;\
+    font-family: var(--font-sans);\
+    text-transform: uppercase;\
+    letter-spacing: 0.1em;\
+    font-size: 0.8rem;\
+    cursor: pointer;\
+    margin-top: 1rem;\
+\}\
+button:hover \{ opacity: 0.9; \}\
+\
+/* RESPONSIVE */\
+@media (max-width: 768px) \{\
+    .job-entry \{ grid-template-columns: 1fr; gap: 0.5rem; \}\
+    .job-meta \{ text-align: left; margin-bottom: 1rem; \}\
+    .hero h1 \{ font-size: 2.5rem; \}\
+\}}
